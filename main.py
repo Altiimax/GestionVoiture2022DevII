@@ -11,7 +11,8 @@ while(int_choice != 0):
             "\n0 Sortir du programme")
 
       choice = input('Votre choix: ')
-      int_choice = int(choice)
+      if(choice != ''):
+            int_choice = int(choice)
 
       if( int_choice == 1):
             brand = input('Entrez une marque: ')
