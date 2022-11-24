@@ -7,7 +7,7 @@ while(int_choice != 0):
 
       print("Veuillez choisir une option:"
             "\n1 Ajouter un véhicule"
-            "\n2 voir le stocke de véhicule"
+            "\n2 voir le stock de véhicule"
             "\n0 Sortir du programme")
 
       choice = input('Votre choix: ')
