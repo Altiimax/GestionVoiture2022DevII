@@ -1,5 +1,6 @@
 import Car as addCar
 import ShowCars as showStock
+import MarkVehicleSold as soldVehicle
 
 int_choice = ''
 
@@ -10,6 +11,7 @@ while int_choice != 0:
           "\n2 Voir le stock de véhicule"
           "\n3 Chercher un véhicule"
           "\n4 Voir les véhicules vendu"
+          "\n5 Marquer un véhicule vendu"
           "\n0 Sortir du programme")
 
     choice = input('Votre choix: ')
@@ -36,3 +38,6 @@ while int_choice != 0:
     elif int_choice == 4:
         print(showStock.soldVehicle())
 
+    elif int_choice == 5:
+        idVehicle = input('entrez l\'id du véhicule: ')
+        print(soldVehicle.markVehicleSold(idVehicle))
