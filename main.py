@@ -7,7 +7,8 @@ while int_choice != 0:
 
     print("Veuillez choisir une option:"
           "\n1 Ajouter un véhicule"
-          "\n2 voir le stock de véhicule"
+          "\n2 Voir le stock de véhicule"
+          "\n3 Chercher un véhicule"
           "\n0 Sortir du programme")
 
     choice = input('Votre choix: ')
@@ -24,3 +25,10 @@ while int_choice != 0:
 
     elif int_choice == 2:
         print(showStock.ShowStock())
+
+    elif int_choice == 3:
+        brand = input('Entrez une marque: ')
+        model = input('Entrez un modèle: ')
+        typeVehicle = input('Entrez un type: ')
+        print(showStock.findCar(brand, model, typeVehicle))
+
