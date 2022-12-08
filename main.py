@@ -14,6 +14,7 @@ while int_choice != 0:
           "\n4 Voir les véhicules vendu"
           "\n6 Ajouter un client"
           "\n7 Consulter la liste des clients"
+          "\n8 Rechercher un client"
           "\n0 Sortir du programme")
 
     choice = input('Votre choix: ')
@@ -51,5 +52,11 @@ while int_choice != 0:
 
     elif int_choice == 7:
         print(showClient.listClient())
+
+    elif int_choice == 8:
+        id = input('Identifiant: ')
+        firstName = input('Prénom: ')
+        lastName = input('Nom: ')
+        print(showClient.findClient(id, firstName, lastName))
 
 

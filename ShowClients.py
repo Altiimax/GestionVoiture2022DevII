@@ -21,15 +21,15 @@ def listClient():
         print('Erreur IO.')
 
 
-def findCar(brand, model, typeVehicle):
+def findClient(id, firstName, lastName):
     try:
-        with open("stock.csv", 'r') as file:
+        with open(fileName, 'r') as file:
             csvreader = csv.reader(file)
             for row in csvreader:
-                if len(row) == 6:  # add this check
-                    if row[0] == brand or row[1] == model or row[2] == typeVehicle:
-                        print('marque:', row[0], 'modèle:', row[1], 'type:', row[2],
-                              'couleur :', row[3], 'puissance (CV) :', row[4], 'vendue:', row[5])
+                if len(row) == 7:  # add this check
+                    if row[0] == id or row[1] == firstName or row[2] == lastName:
+                        print('identifiant:', row[0], 'prénom:', row[1], 'nom:', row[2],
+                              'adresse :', row[3], 'ville (CV) :', row[4], 'code postal:', row[5])
                 # else:
                 #     print('Aucun véhicule dans le stock')
 
