@@ -1,4 +1,5 @@
 import Car as addCar
+import Client as newClient
 import ShowCars as showStock
 
 int_choice = ''
@@ -10,6 +11,7 @@ while int_choice != 0:
           "\n2 Voir le stock de véhicule"
           "\n3 Chercher un véhicule"
           "\n4 Voir les véhicules vendu"
+          "\n6 Ajouter un client"
           "\n0 Sortir du programme")
 
     choice = input('Votre choix: ')
@@ -35,4 +37,13 @@ while int_choice != 0:
 
     elif int_choice == 4:
         print(showStock.soldVehicle())
+
+    elif int_choice == 6:
+        id = input('Entrez un identifiant unique: ')
+        firstName = input('Prénom: ')
+        lastName = input('Nom: ')
+        address = input('Adresse: ')
+        city = input('Ville: ')
+        zip = input('Code postal: ')
+        newClient.addClient(id, firstName, lastName, address, city, zip)
 
