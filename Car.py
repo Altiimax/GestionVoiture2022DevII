@@ -2,13 +2,18 @@ import csv
 
 
 class Car:
-    def __init__(self, brand, model, typeVehicleVehicle, color, horsePower, sold):
+    def __init__(self, id, brand, model, typeVehicleVehicle, color, horsePower, sold):
+        self.__id = id
         self.__brand = brand
         self.__model = model
         self.__typeVehicle = typeVehicleVehicle
         self.__color = color
         self.__horsePower = horsePower
         self.__sold = sold
+
+    @property
+    def id(self):
+        return self.__id
 
     @property
     def brand(self):
@@ -33,6 +38,10 @@ class Car:
     @property
     def sold(self):
         return self.sold
+
+    @id.setter
+    def id(self, newId):
+        self.__id = newId
 
     @brand.setter
     def brand(self, newBrand):
@@ -59,20 +68,21 @@ class Car:
         self.__sold = isSold
 
 
-def addNewCar(brand, model, typeVehicle, color, hp, sold='false'):
+def addNewCar(id, brand, model, typeVehicle, color, horsePower, sold='false'):
 
-    newCar = Car(brand, model, typeVehicle, color, hp, sold)
+    newCar = Car(id, brand, model, typeVehicle, color, horsePower, sold)
+    newCar.id = id
     newCar.brand = brand
     newCar.model = model
     newCar.typeVehicle = typeVehicle
     newCar.color = color
-    newCar.hp = hp
+    newCar.horsePower = horsePower
 
     filename = 'stock.csv'
     # csv data
     # header = ['brand', 'model', 'typeVehicle', 'color', 'hp', 'sold']
     data_header = [
-       [brand, model, typeVehicle, color, hp, sold]
+       [id, brand, model, typeVehicle, color, horsePower, sold]
     ]
 
     try:

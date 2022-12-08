@@ -19,12 +19,13 @@ while int_choice != 0:
         int_choice = int(choice)
 
     if int_choice == 1:
+        id = input('entrez un identidiant unique: ')
         brand = input('Entrez une marque: ')
         model = input('Entrez un modèle: ')
         typeVehicle = input('Entrez un type: ')
         color = input('Entrez la couleur du véhicule: ')
         hp = input('Entrez la puissance du véhicule: ')
-        addCar.addNewCar(brand, model, type, color, hp)
+        addCar.addNewCar(id, brand, model, typeVehicle, color, hp)
 
     elif int_choice == 2:
         print(showStock.ShowStock())
@@ -40,4 +41,4 @@ while int_choice != 0:
 
     elif int_choice == 5:
         idVehicle = input('entrez l\'id du véhicule: ')
-        print(soldVehicle.markVehicleSold(idVehicle))
+        print(showStock.markVehicleSold(idVehicle))
