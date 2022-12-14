@@ -28,14 +28,17 @@ class Start(App):
         )
         self.window.add_widget(self.greeting)
 
-        # text input widget
-        self.user = TextInput(
-            multiline= False,
-            padding_y= (20,20),
-            size_hint= (1, 0.5)
+        # button Ajout
+        self.vehicle = Button(
+            text= "Ajouter un véhicule",
+            size_hint= (1,0.5),
+            bold= True,
+            background_color ='#00FFCE',
+            #remove darker overlay of background colour
+            # background_normal = ""
         )
-
-        self.window.add_widget(self.user)
+        self.vehicle.bind(on_press=self.addVehicle)
+        self.window.add_widget(self.vehicle)
 
         # button stock
         self.showStock = Button(
@@ -50,7 +53,7 @@ class Start(App):
         self.window.add_widget(self.showStock)
 
         # button soldVehicle
-        self.vehichleSold = Button(
+        self.vehicleSold = Button(
             text= "Voir les véhicules vendus",
             size_hint= (1,0.5),
             bold= True,
@@ -58,8 +61,8 @@ class Start(App):
             #remove darker overlay of background colour
             # background_normal = ""
         )
-        self.vehichleSold.bind(on_press=self.soldVehicle)
-        self.window.add_widget(self.vehichleSold)
+        self.vehicleSold.bind(on_press=self.soldVehicle)
+        self.window.add_widget(self.vehicleSold)
 
         # button listClient
         self.showClient = Button(
@@ -87,6 +90,18 @@ class Start(App):
     def client(self, instance):
         showClient.listClient()
         # self.greeting.text = "Hello " + self.user.text + "!"
+
+    def addVehicle(self, instance):
+        print('test good')
+        # addCar.addNewCar(brand, model, typeVehicle, color, hp)
+        brand = self.brand = TextInput(
+            multiline= False,
+            padding_y= (10,10),
+            size_hint= (1, 0.5)
+        )
+
+        self.window.add_widget(self.brand )
+        print(brand )
 
 # run Say Hello App Calss
 if __name__ == "__main__":
