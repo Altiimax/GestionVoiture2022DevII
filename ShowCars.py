@@ -1,16 +1,19 @@
 import csv
+from kivy.uix.label import Label
 
 
 def ShowStock():
     try:
         with open("stock.csv", 'r') as file:
             csvreader = csv.reader(file)
-
+            tab = []
             for row in csvreader:
                 if len(row) == 6:  # add this check
                     if(row[5] != 'true'):
                         print('marque:', row[0], 'modèle:', row[1], 'type:', row[2],
                           'couleur:', row[3], 'puissance (CV) :', row[4], 'vendue:', row[5])
+                        l = Label(text=row[0], markup=True)
+                        return l
                 # else:
                 #     print('Aucun véhicule dans le stock')
 
