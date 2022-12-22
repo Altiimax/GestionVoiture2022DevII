@@ -9,6 +9,7 @@ import Client
 import ShowCars as showStock
 import ShowClients as showClient
 
+hide = False
 
 class Start(App):
 
@@ -26,71 +27,72 @@ class Start(App):
         self.greeting = Label(
             text="Bienvenue dans le programme de gestion de véhicule",
             font_size=18,
-            color='#00FFCE'
+            color='#087BB4'
         )
         self.window.add_widget(self.greeting)
 
-        # button Ajout véhicule
-        self.vehicle = Button(
-            text="Ajouter un véhicule",
-            size_hint=(1, 0.5),
-            bold=True,
-            background_color='#00FFCE',
-            # remove darker overlay of background colour
-            # background_normal = ""
-        )
-        self.vehicle.bind(on_press=self.addVehicle)
-        self.window.add_widget(self.vehicle)
+        if (hide != True):
+            # button Ajout véhicule
+            self.vehicle = Button(
+                text="Ajouter un véhicule",
+                size_hint=(1, 0.5),
+                bold=True,
+                background_color='#087BB4',
+                # remove darker overlay of background colour
+                # background_normal = ""
+            )
+            self.vehicle.bind(on_press=self.addVehicle)
+            self.window.add_widget(self.vehicle)
 
-        # button stock
-        self.showStock = Button(
-            text="Voir Le stock",
-            size_hint=(1, 0.5),
-            bold=True,
-            background_color='#00FFCE',
-            # remove darker overlay of background colour
-            # background_normal = ""
-        )
-        self.showStock.bind(on_press=self.stock)
-        self.window.add_widget(self.showStock)
+            # button stock
+            self.showStock = Button(
+                text="Voir Le stock",
+                size_hint=(1, 0.5),
+                bold=True,
+                background_color='#087BB4',
+                # remove darker overlay of background colour
+                # background_normal = ""
+            )
+            self.showStock.bind(on_press=self.stock)
+            self.window.add_widget(self.showStock)
 
-        # button soldVehicle
-        self.vehicleSold = Button(
-            text="Voir les véhicules vendus",
-            size_hint=(1, 0.5),
-            bold=True,
-            background_color='#00FFCE',
-            # remove darker overlay of background colour
-            # background_normal = ""
-        )
-        self.vehicleSold.bind(on_press=self.soldVehicle)
-        self.window.add_widget(self.vehicleSold)
+            # button soldVehicle
+            self.vehicleSold = Button(
+                text="Voir les véhicules vendus",
+                size_hint=(1, 0.5),
+                bold=True,
+                background_color='#087BB4',
+                # remove darker overlay of background colour
+                # background_normal = ""
+            )
+            self.vehicleSold.bind(on_press=self.soldVehicle)
+            self.window.add_widget(self.vehicleSold)
 
-        # button listClient
-        self.showClient = Button(
-            text="Voir les clients",
-            size_hint=(1, 0.5),
-            bold=True,
-            background_color='#00FFCE',
-            # remove darker overlay of background colour
-            # background_normal = ""
-        )
-        self.showClient.bind(on_press=self.client)
-        self.window.add_widget(self.showClient)
+            # button listClient
+            self.showClient = Button(
+                text="Voir les clients",
+                size_hint=(1, 0.5),
+                bold=True,
+                background_color='#087BB4',
+                # remove darker overlay of background colour
+                # background_normal = ""
+            )
+            self.showClient.bind(on_press=self.client)
+            self.window.add_widget(self.showClient)
 
-        # button listClient
-        self.newClient = Button(
-            text="Ajouter un nouveau client",
-            size_hint=(1, 0.5),
-            bold=True,
-            background_color='#00FFCE',
-            # remove darker overlay of background colour
-            # background_normal = ""
-        )
-        self.newClient.bind(on_press=self.addClient)
-        self.window.add_widget(self.newClient)
+            # button listClient
+            self.newClient = Button(
+                text="Ajouter un nouveau client",
+                size_hint=(1, 0.5),
+                bold=True,
+                background_color='#087BB4',
+                # remove darker overlay of background colour
+                # background_normal = ""
+            )
+            self.newClient.bind(on_press=self.addClient)
+            self.window.add_widget(self.newClient)
 
-        return self.window
+            return self.window
 
     def stock(self, instance):
         showStock.ShowStock()
@@ -101,47 +103,47 @@ class Start(App):
         showStock.soldVehicle()
 
     def addClient(self, instance):
-        Client.addClient()
+        self.window.clear_widgets()
         self.idTitle = Label(
             text="identifiant : ",
             font_size=14,
-            color='#00FFCE'
+            color='#087BB4'
         )
         self.firstNamelTitle = Label(
             text="Prénom : ",
             font_size=14,
-            color='#00FFCE'
+            color='#087BB4'
         )
 
         self.lastNameTitle = Label(
             text="Nom : ",
             font_size=14,
-            color='#00FFCE'
+            color='#087BB4'
         )
         self.addressTitle = Label(
             text="adresse : ",
             font_size=14,
-            color='#00FFCE'
+            color='#087BB4'
         )
         self.cityTitle = Label(
             text="Ville : ",
             font_size=14,
-            color='#00FFCE'
+            color='#087BB4'
         )
         self.zipTitle = Label(
             text="Code postal : ",
             font_size=14,
-            color='#00FFCE'
+            color='#087BB4'
         )
         self.id = TextInput(
             multiline=False,
-            padding_y=(10, 10),
-            size_hint=(1, 0.5)
+            padding_y=(5, 5),
+            size_hint=(0.5, 1)
         )
         self.firstName = TextInput(
             multiline=False,
             padding_y=(10, 10),
-            size_hint=(1, 0.5)
+            size_hint=(1, 1)
         )
         self.lastName = TextInput(
             multiline=False,
@@ -171,6 +173,7 @@ class Start(App):
             background_color='red',
 
         )
+
         self.window.add_widget(self.idTitle)
         self.window.add_widget(self.id)
         self.window.add_widget(self.firstNamelTitle)
@@ -188,68 +191,67 @@ class Start(App):
 
         return self.window
 
-
     def client(self, instance):
         showClient.listClient()
 
-
     def addVehicle(self, instance):
+        self.window.clear_widgets()
         self.brandTitle = Label(
-        text="Marque : ",
-        font_size=14,
-        color='#00FFCE'
+            text="Marque : ",
+            font_size=14,
+            color='#087BB4'
         )
         self.modelTitle = Label(
-        text="Modèle : ",
-        font_size=14,
-        color='#00FFCE'
+            text="Modèle : ",
+            font_size=14,
+            color='#087BB4'
         )
         self.typeTitle = Label(
-        text="Type de véhicule : ",
-        font_size=14,
-        color='#00FFCE'
+            text="Type de véhicule : ",
+            font_size=14,
+            color='#087BB4'
         )
         self.colorTitle = Label(
-        text="Couleur : ",
-        font_size=14,
-        color='#00FFCE'
+            text="Couleur : ",
+            font_size=14,
+            color='#087BB4'
         )
         self.hpTitle = Label(
-        text="Puissance (cv) : ",
-        font_size=14,
-        color='#00FFCE'
+            text="Puissance (cv) : ",
+            font_size=14,
+            color='#087BB4'
         )
         self.brand = TextInput(
-        multiline=False,
-        padding_y=(10, 10),
-        size_hint=(1, 0.5)
+            multiline=False,
+            padding_y=(10, 10),
+            size_hint=(1, 0.5)
         )
         self.model = TextInput(
-        multiline=False,
-        padding_y=(10, 10),
-        size_hint=(1, 0.5)
+            multiline=False,
+            padding_y=(10, 10),
+            size_hint=(1, 0.5)
         )
         self.typeVehicle = TextInput(
-        multiline=False,
-        padding_y=(10, 10),
-        size_hint=(1, 0.5)
+            multiline=False,
+            padding_y=(10, 10),
+            size_hint=(1, 0.5)
         )
         self.color = TextInput(
-        multiline=False,
-        padding_y=(10, 10),
-        size_hint=(1, 0.5)
+            multiline=False,
+            padding_y=(10, 10),
+            size_hint=(1, 0.5)
         )
         self.hp = TextInput(
-        multiline=False,
-        padding_y=(10, 10),
-        size_hint=(1, 0.5)
+            multiline=False,
+            padding_y=(10, 10),
+            size_hint=(1, 0.5)
         )
 
         self.send = Button(
-        text="Ajouter véhicule au stock",
-        size_hint=(0.5, 0.5),
-        bold=True,
-        background_color='red',
+            text="Ajouter véhicule au stock",
+            size_hint=(0.5, 0.5),
+            bold=True,
+            background_color='red',
 
         )
         self.window.add_widget(self.brandTitle)
@@ -267,12 +269,13 @@ class Start(App):
 
         return self.window
 
-
     def sendVehicleAdd(self, instance):
         addCar.addNewCar(self.brand.text, self.model.text, self.typeVehicle.text, self.color.text, self.hp.text)
 
     def sendClient(self, instance):
-        Client.addClient(self.id.text, self.firstName.text, self.lastName.text, self.address.text, self.city.text, self.zip.text)
+        self.window.clear_widgets()
+        Client.addClient(self.id.text, self.firstName.text, self.lastName.text, self.address.text, self.city.text,
+                         self.zip.text)
 
 
 # run Start class

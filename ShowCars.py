@@ -12,8 +12,8 @@ def ShowStock():
                     if(row[5] != 'true'):
                         print('marque:', row[0], 'modèle:', row[1], 'type:', row[2],
                           'couleur:', row[3], 'puissance (CV) :', row[4], 'vendue:', row[5])
-                        l = Label(text=row[0], markup=True)
-                        return l
+                        # l = Label(text=row[0], markup=True)
+                        # return l
                 # else:
                 #     print('Aucun véhicule dans le stock')
 
